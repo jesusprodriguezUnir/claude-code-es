@@ -1,0 +1,16 @@
+{
+  "description": "Realiza una copia de seguridad con timestamp antes de cada edición de archivo. Protege contra cambios accidentales durante el desarrollo con Claude Code.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'FILE=\"$CLAUDE_TOOL_INPUT_FILE_PATH\"; if [ -f \"$FILE\" ]; then BACKUP=\"${FILE}.bak.$(date +%Y%m%d_%H%M%S)\"; cp \"$FILE\" \"$BACKUP\" 2>/dev/null && echo \"Respaldo creado: $BACKUP\" || true; fi'"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "description": "Guardia de alcance: alerta cuando Claude intenta modificar archivos fuera de los directorios permitidos definidos en .claude/scope.txt. Previene cambios accidentales fuera del área de trabajo acordada.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'FILE=\"$CLAUDE_TOOL_INPUT_FILE_PATH\"; [ ! -f \".claude/scope.txt\" ] && exit 0; PERMITIDO=false; while IFS= read -r dir; do [[ \"$FILE\" == $dir* ]] && PERMITIDO=true && break; done < \".claude/scope.txt\"; [ \"$PERMITIDO\" = false ] && echo \"GUARDIA-ALCANCE: El archivo $FILE está fuera del alcance definido en .claude/scope.txt. Revisa si realmente debes modificar este archivo.\" && exit 1 || exit 0'"
+          }
+        ]
+      }
+    ]
+  }
+}

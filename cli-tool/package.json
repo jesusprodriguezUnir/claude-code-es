@@ -1,0 +1,73 @@
+{
+  "name": "claude-code-es",
+  "version": "1.0.0",
+  "description": "Componentes y plantillas para Claude Code en español. Especializado en Angular, .NET Core, Python y SQL Server con buenas prácticas de ingeniería de software.",
+  "main": "src/index.js",
+  "bin": {
+    "claude-code-es": "bin/create-claude-config.js",
+    "cces": "bin/create-claude-config.js"
+  },
+  "scripts": {
+    "start": "node bin/create-claude-config.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "dev:link": "npm link",
+    "dev:unlink": "npm unlink -g claude-code-es"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "español",
+    "spanish",
+    "ai",
+    "configuration",
+    "template",
+    "setup",
+    "cli",
+    "hooks",
+    "automation",
+    "angular",
+    "dotnet",
+    "csharp",
+    "python",
+    "sqlserver",
+    "ingenieria-software",
+    "buenas-practicas"
+  ],
+  "author": "Claude Code ES",
+  "license": "MIT",
+  "dependencies": {
+    "boxen": "^5.1.2",
+    "chalk": "^4.1.2",
+    "chokidar": "^3.5.3",
+    "commander": "^11.1.0",
+    "express": "^4.18.2",
+    "fs-extra": "^11.1.1",
+    "inquirer": "^8.2.6",
+    "js-yaml": "^4.1.0",
+    "open": "^8.4.2",
+    "ora": "^5.4.1",
+    "uuid": "^11.1.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpedro-lemos/claude-code-es.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jpedro-lemos/claude-code-es/issues"
+  },
+  "homepage": "https://github.com/jpedro-lemos/claude-code-es#readme",
+  "files": [
+    "bin/",
+    "src/",
+    "components/",
+    "README.md"
+  ],
+  "devDependencies": {
+    "jest": "^30.0.4"
+  }
+}

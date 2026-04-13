@@ -1,0 +1,16 @@
+{
+  "description": "Puerta de planificación: bloquea cambios de código si no existe un archivo PLAN.md o docs/diseno.md en el proyecto. Alienta la planificación antes de implementar funcionalidades nuevas.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'FILE=\"$CLAUDE_TOOL_INPUT_FILE_PATH\"; EXT=\"${FILE##*.}\"; case \"$EXT\" in ts|cs|py|js) [ -f \"PLAN.md\" ] || [ -f \"docs/diseno.md\" ] || [ -f \"docs/plan.md\" ] && exit 0; echo \"PUERTA-PLANIFICACION: No existe PLAN.md en el proyecto. Crea un PLAN.md con la descripción de la funcionalidad antes de comenzar a programar.\"; exit 1 ;; esac'"
+          }
+        ]
+      }
+    ]
+  }
+}

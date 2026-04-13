@@ -1,0 +1,46 @@
+{
+  "name": "claude-code-es",
+  "version": "1.0.0",
+  "description": "Paquete npm y dashboard de componentes Claude Code en español — Angular, .NET Core, Python y SQL Server",
+  "main": "cli-tool/src/index.js",
+  "bin": {
+    "claude-code-es": "cli-tool/bin/create-claude-config.js",
+    "cces": "cli-tool/bin/create-claude-config.js"
+  },
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Build complete'",
+    "start": "vercel dev",
+    "test": "echo 'No tests specified'",
+    "deploy": "./scripts/deploy.sh",
+    "deploy:dashboard": "./scripts/deploy.sh"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "boxen": "^5.1.2",
+    "chalk": "^4.1.2",
+    "chokidar": "^3.5.3",
+    "commander": "^11.1.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "fs-extra": "^11.1.1",
+    "inquirer": "^8.2.6",
+    "js-yaml": "^4.1.1",
+    "open": "^8.4.2",
+    "ora": "^5.4.1",
+    "uuid": "^11.1.0"
+  },
+  "keywords": [
+    "claude-code",
+    "español",
+    "spanish",
+    "angular",
+    "dotnet",
+    "python",
+    "sqlserver",
+    "componentes",
+    "plantillas"
+  ],
+  "author": "Claude Code ES",
+  "license": "MIT"
+}

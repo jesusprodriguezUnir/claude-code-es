@@ -1,0 +1,49 @@
+{
+  "description": "Instrucción para Claude sobre patrones de .gitignore estándar para proyectos .NET Core con frontend Angular. Incluye patrones para artefactos de build, configuraciones locales, archivos de usuario de Visual Studio y herramientas de análisis.",
+  "gitignorePatterns": {
+    "dotnet": [
+      "bin/",
+      "obj/",
+      "*.user",
+      "*.suo",
+      ".vs/",
+      "appsettings.Development.json",
+      "appsettings.Local.json",
+      "*.pfx",
+      "launchSettings.json",
+      "TestResults/",
+      "coverage/",
+      "*.nupkg"
+    ],
+    "angular": [
+      "node_modules/",
+      "dist/",
+      ".angular/",
+      "*.env",
+      "environment.local.ts"
+    ],
+    "python": [
+      "__pycache__/",
+      "*.pyc",
+      ".venv/",
+      "venv/",
+      ".env",
+      "*.egg-info/",
+      ".mypy_cache/",
+      ".ruff_cache/",
+      ".pytest_cache/",
+      "htmlcov/",
+      ".coverage"
+    ],
+    "general": [
+      ".DS_Store",
+      "Thumbs.db",
+      "*.log",
+      ".idea/",
+      ".vscode/settings.json",
+      "*.bak",
+      "*.bak.*"
+    ]
+  },
+  "instructions": "Cuando crees o modifiques el .gitignore del proyecto, incluye los patrones apropiados para el stack detectado. Nunca incluir en git: archivos .env con secretos, connection strings con contraseñas, certificados .pfx/.pem, o configuraciones de desarrollo local."
+}

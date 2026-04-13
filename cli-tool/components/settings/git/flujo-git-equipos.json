@@ -1,0 +1,36 @@
+{
+  "description": "Configuración de flujo Git Flow para equipos hispanos. Define convenciones de ramas, mensajes de commit en español con Conventional Commits, y estrategias de merge para proyectos Angular/.NET/Python.",
+  "gitFlow": {
+    "mainBranch": "main",
+    "developBranch": "develop",
+    "featurePrefix": "feature/",
+    "releasePrefix": "release/",
+    "hotfixPrefix": "hotfix/",
+    "branchNamingConvention": "kebab-case en español descriptivo",
+    "examples": {
+      "feature": "feature/gestion-empleados",
+      "release": "release/v1.2.0",
+      "hotfix": "hotfix/corregir-calculo-impuesto"
+    }
+  },
+  "conventionalCommits": {
+    "language": "español",
+    "types": {
+      "feat": "Nueva funcionalidad para el usuario",
+      "fix": "Corrección de un bug",
+      "refactor": "Cambio de código que no agrega funcionalidad ni corrige bug",
+      "test": "Adición o modificación de pruebas",
+      "docs": "Cambios solo en documentación",
+      "chore": "Tareas de mantenimiento sin cambios de producción",
+      "perf": "Mejora de rendimiento",
+      "ci": "Cambios en archivos de integración continua",
+      "build": "Cambios que afectan el sistema de build",
+      "style": "Cambios de formato que no afectan el significado del código"
+    }
+  },
+  "mergeStrategy": {
+    "featureToDevelop": "squash (cuando los commits intermedios son WIP)",
+    "developToMain": "merge commit (--no-ff)",
+    "hotfixToMain": "merge commit y cherry-pick a develop"
+  }
+}

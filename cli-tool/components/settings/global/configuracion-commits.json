@@ -1,0 +1,15 @@
+{
+  "description": "Configura Claude Code para equipos que usan Conventional Commits en español. Desactiva la co-autoría automática para entornos corporativos con políticas de autoría estrictas.",
+  "includeCoAuthoredBy": false,
+  "commitMessageFormat": "Conventional Commits en español",
+  "commitMessageExamples": [
+    "feat: agregar autenticación con Azure AD",
+    "fix: corregir validación de email en formulario de empleados",
+    "refactor: extraer lógica de cálculo de nómina a servicio dedicado",
+    "test: agregar pruebas de integración para endpoint de pedidos",
+    "docs: documentar API de empleados con ejemplos de uso",
+    "chore: actualizar dependencias de seguridad de npm",
+    "perf: optimizar consulta de reportes de ventas con índice columnstore",
+    "ci: agregar verificación de cobertura de pruebas en pipeline"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "description": "Aplica el formateador de código apropiado después de editar un archivo, según su extensión: Prettier para TypeScript/HTML/SCSS, ruff para Python, dotnet-format para C#. Mantiene el estilo consistente automáticamente.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'FILE=\"$CLAUDE_TOOL_INPUT_FILE_PATH\"; EXT=\"${FILE##*.}\"; case \"$EXT\" in ts|html|scss|css|js|json) command -v prettier &>/dev/null && prettier --write \"$FILE\" 2>/dev/null || true ;; py) command -v ruff &>/dev/null && ruff format \"$FILE\" 2>/dev/null || true ;; cs) command -v dotnet-format &>/dev/null && dotnet format \"$FILE\" --include \"$FILE\" 2>/dev/null || true ;; esac'"
+          }
+        ]
+      }
+    ]
+  }
+}

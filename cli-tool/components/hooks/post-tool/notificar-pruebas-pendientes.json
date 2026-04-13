@@ -1,0 +1,16 @@
+{
+  "description": "Después de editar un archivo de producción (.ts, .cs, .py), verifica si existe un archivo de prueba asociado y recuerda ejecutarlo. Fomenta la disciplina de testing en el equipo.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'FILE=\"$CLAUDE_TOOL_INPUT_FILE_PATH\"; BASE=$(basename \"$FILE\"); DIR=$(dirname \"$FILE\"); EXT=\"${FILE##*.}\"; case \"$EXT\" in ts) SPEC=\"${FILE%.ts}.spec.ts\"; [ -f \"$SPEC\" ] && echo \"AVISO: Recuerda ejecutar las pruebas de $(basename $SPEC)\" || true ;; cs) TEST=$(find . -name \"${BASE%.cs}Tests.cs\" -o -name \"${BASE%.cs}Test.cs\" 2>/dev/null | head -1); [ -n \"$TEST\" ] && echo \"AVISO: Recuerda ejecutar: dotnet test (prueba: $(basename $TEST))\" || true ;; py) TEST=$(find . -name \"test_${BASE}\" -o -name \"${BASE%.py}_test.py\" 2>/dev/null | head -1); [ -n \"$TEST\" ] && echo \"AVISO: Recuerda ejecutar: pytest $(basename $TEST)\" || true ;; esac'"
+          }
+        ]
+      }
+    ]
+  }
+}

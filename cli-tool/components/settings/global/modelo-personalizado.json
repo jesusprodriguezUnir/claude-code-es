@@ -1,0 +1,11 @@
+{
+  "description": "Configura los modelos Claude preferidos para diferentes tipos de tareas en proyectos de ingeniería de software. Usa claude-sonnet-4-6 para generación de código y claude-opus-4-6 para diseño arquitectónico.",
+  "model": "claude-sonnet-4-6",
+  "taskModelOverrides": {
+    "architecture": "claude-opus-4-6",
+    "code-review": "claude-sonnet-4-6",
+    "code-generation": "claude-sonnet-4-6",
+    "documentation": "claude-haiku-4-5-20251001"
+  },
+  "notes": "claude-opus-4-6 para decisiones arquitectónicas complejas; claude-sonnet-4-6 como modelo base balanceado para generación de código; claude-haiku-4-5-20251001 para tareas rápidas de documentación"
+}

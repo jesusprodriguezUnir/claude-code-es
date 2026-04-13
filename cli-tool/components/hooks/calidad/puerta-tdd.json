@@ -1,0 +1,16 @@
+{
+  "description": "Puerta de calidad TDD: bloquea la edición de archivos de producción (.ts, .cs, .py) si no existe un archivo de prueba asociado. Fomenta la disciplina Test-Driven Development en el equipo.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'FILE=\"$CLAUDE_TOOL_INPUT_FILE_PATH\"; BASE=$(basename \"$FILE\"); EXT=\"${FILE##*.}\"; case \"$EXT\" in ts) [[ \"$FILE\" =~ \\.spec\\.ts$ ]] && exit 0; SPEC=\"${FILE%.ts}.spec.ts\"; [ ! -f \"$SPEC\" ] && echo \"PUERTA-TDD: No existe archivo de prueba para $BASE. Crea ${BASE%.ts}.spec.ts primero.\" && exit 1 || exit 0 ;; cs) [[ \"$FILE\" =~ Tests\\.cs$ ]] && exit 0; TEST=$(find . -name \"${BASE%.cs}Tests.cs\" 2>/dev/null | head -1); [ -z \"$TEST\" ] && echo \"PUERTA-TDD: No existe archivo de prueba para $BASE. Crea ${BASE%.cs}Tests.cs primero.\" && exit 1 || exit 0 ;; py) [[ \"$FILE\" =~ test_.+\\.py$ ]] && exit 0; [[ \"$FILE\" =~ conftest\\.py$ ]] && exit 0; TEST=$(find . -name \"test_$BASE\" 2>/dev/null | head -1); [ -z \"$TEST\" ] && echo \"PUERTA-TDD: No existe archivo de prueba para $BASE. Crea test_$BASE primero.\" && exit 1 || exit 0 ;; esac'"
+          }
+        ]
+      }
+    ]
+  }
+}
