@@ -58,6 +58,65 @@ npx claude-code-templates@latest --hook git/pre-commit-validation --yes
 npx claude-code-templates@latest --mcp database/postgresql-integration --yes
 ```
 
+## Run Locally (Dashboard + CLI)
+
+This repository contains multiple apps. If you are new, start with the Dashboard and CLI flow below.
+
+### 1. Prerequisites
+
+- Node.js 20+ (Node 22 recommended)
+- npm 10+
+
+### 2. Install Dependencies
+
+```bash
+# repository root
+npm install
+
+# dashboard app
+cd dashboard
+npm install
+
+# cli tool
+cd ../cli-tool
+npm install
+```
+
+### 3. Start Dashboard (Astro)
+
+```bash
+cd dashboard
+cp .env.example .env.local
+npm run dev
+```
+
+Open [http://localhost:4321](http://localhost:4321)
+
+Notes:
+
+- You can run the dashboard in local mode with placeholder env values.
+- If `PUBLIC_CLERK_PUBLISHABLE_KEY` is missing or placeholder, auth widgets stay disabled (app still starts).
+
+### 4. Link and Run CLI Locally
+
+```bash
+cd cli-tool
+npm run dev:link
+claude-code-es --help
+```
+
+Expected result: the CLI help menu is printed with available options.
+
+### 5. Optional Smoke Checks
+
+```bash
+# in cli-tool
+npm test
+
+# in dashboard
+npm run build
+```
+
 ## What You Get
 
 | Component | Description | Examples |
